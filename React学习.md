@@ -796,7 +796,7 @@ saveFormData = (dataType, e) => {
 
 #### 2.7.1 生命周期（旧）
 
-<img src="D:\WebStorm 2020.2.2\帮助文档\React\react生命周期(旧).png" style="zoom:75%;" />
+<img src="D:\JAVA\学习资料\Web前端入门教程视频\React\react全家桶资料\02_原理图\react生命周期(旧).png" alt="react生命周期(旧)" style="zoom:80%;" />
 
 ---
 
@@ -828,7 +828,7 @@ saveFormData = (dataType, e) => {
 
 #### 2.7.2 生命周期（新）
 
-<img src="D:\WebStorm 2020.2.2\帮助文档\React\react生命周期(新).png" style="zoom: 67%;" />
+<img src="D:\JAVA\学习资料\Web前端入门教程视频\React\react全家桶资料\02_原理图\react生命周期(新).png" alt="react生命周期(新)" style="zoom: 75%;" />
 
 ---
 
@@ -1461,7 +1461,7 @@ export default withRouter(Header)
 >
 >Redux工作流程图
 
-<img src="D:\WebStorm 2020.2.2\帮助文档\React\redux原理图.png" style="zoom: 67%;" />
+<img src="D:\JAVA\学习资料\Web前端入门教程视频\React\react全家桶资料\02_原理图\redux原理图.png" alt="redux原理图" style="zoom: 65%;" />
 
 - **Reducers**可以==初始化==和==加工==状态数据
 - 初始化时，**action**对象的`type`为默认的`@@redux_init/随机字符`，`data`数据==可以没有==；`previousState`为`undefined`
@@ -1568,7 +1568,7 @@ store.subscribe(() => ReactDOM.render(<App />,document.getElementById('root'))
 
 - 原理图
 
-<img src="D:\WebStorm 2020.2.2\帮助文档\React\react-redux模型图.png" style="zoom: 67%;" />
+<img src="D:\JAVA\学习资料\Web前端入门教程视频\React\react全家桶资料\02_原理图\react-redux模型图.png" alt="react-redux模型图" style="zoom:70%;" />
 
 ---
 
