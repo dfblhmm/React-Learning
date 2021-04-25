@@ -69,11 +69,13 @@
 - 标签中混入JS表达式（==非js语句==）要使用`{}`
 - 样式的类名指定不要用`class`，要用`className`
 - 内联样式，要使用`style={{key: value}}`。其中`key`使用==驼峰命名==，`value`为==字符串==形式
+- React 会自动添加 ==”px”== 后缀到内联样式为数字的属性后。如需使用 ”px” 以外的单位，请将此值设为数字与所需单位组成的字符串
 - 虚拟DOM只能含有==一个根标签==
 - 标签必须闭合
 - 标签首字母
   - 若小写字母开头，则将该标签转为html中同名元素；若html中无该标签对应的同名元素，则报错
   - 若大写字母开头，react就去渲染对应的组件，若组件没有定义则报错
+- `false`、`null`、`undefined`、 `true` 是合法的子元素。但它们并不会被渲染值得注意的是有一些 [“falsy” 值](https://developer.mozilla.org/en-US/docs/Glossary/Falsy)，如数字 `0`，仍然会被 React 渲染；如果你想渲染 `false`、`true`、`null`、`undefined` 等值，你需要先将它们转化为==字符串==
 
 ```jsx
 const id = 'title'
@@ -422,6 +424,15 @@ ReactDOM.render(<Person {...person} />, document.getElementById('app'))
 ```
 
 - 在react中，使用展开运算符展开==对象==只能用于==标签属性的传递==
+- 你还可以选择只保留当前组件需要接收的 props，并使用展开运算符将==其他 props== 传递下去
+
+```jsx
+const Button = props => {
+  const { kind, ...other } = props;
+  const className = kind === "primary" ? "PrimaryButton" : "SecondaryButton";
+  return <button className={className} {...other} />;
+};
+```
 
 ---
 
@@ -1954,6 +1965,18 @@ const show = () => {
 ```
 
 ---
+
+
+
+#### 8.3.4 自定义 hook
+
+- 自定义 Hook 是一个函数，其名称以 “`use`” 开头，函数内部可以调用其他的 Hook
+- 自定义 Hook 必须以 “`use`” 开头。这个约定非常重要。不遵循的话，由于无法判断某个函数是否包含对其内部 Hook 的调用，React 将无法自动检查你的 Hook 是否违反了 Hook 的规则
+- 在两个组件中使用相同的 Hook ==不会共享 state== 。自定义 Hook 是一种重用*状态逻辑*的机制(例如设置为订阅并存储当前值)，所以每次使用自定义 Hook 时，其中的所有 state 和副作用都是完全隔离的。
+
+---
+
+
 
 
 
